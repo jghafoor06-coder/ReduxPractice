@@ -1,3 +1,23 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {
   "extends": "@react-native/typescript-config",
   "compilerOptions": {
