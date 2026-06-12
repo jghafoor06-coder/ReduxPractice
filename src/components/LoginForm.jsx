@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { saveUser } from '../Redux/reducers/todoReducer';
+import { saveUser } from '../Redux/reducers/authReducer';
 
 const LoginForm = () => {
   const dispatch = useDispatch();

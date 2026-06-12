@@ -4,7 +4,7 @@ const initialState = {
     user: null,
 }
 
-const todoSlice = createSlice({
+const authSlice = createSlice({
   name: 'todos',
   initialState,
   reducers: {
@@ -14,5 +14,5 @@ const todoSlice = createSlice({
   },
 });
 
-export const { saveUser } = todoSlice.actions;
-export default todoSlice.reducer;
+export const { saveUser } = authSlice.actions;
+export default authSlice.reducer;

@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit"; 
-import todoReducer from './reducers/todoReducer'
+import authReducer from './reducers/authReducer'
 
 export const store = configureStore({
     reducer: {
-        saveuser: todoReducer,
+        saveuser: authReducer,
     },
 });
