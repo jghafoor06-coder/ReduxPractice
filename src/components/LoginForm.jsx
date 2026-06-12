@@ -1,4 +1,12 @@
-import { StyleSheet, Text, View, TouchableOpacity, TextInput } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  TextInput,
+  Keyboard,
+  TouchableWithoutFeedback,
+} from 'react-native';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { saveUser } from '../Redux/reducers/todoReducer';
@@ -16,35 +24,84 @@ const LoginForm = () => {
   };
 
   return (
-    <View style={{ padding: 20 }}>
-      <TextInput
-        placeholder="enter name"
-        value={name}
-        onChangeText={setName}
-        style={{ width: 200, height: 100, borderRadius: 10 }}
-      />
-
-      <TextInput
-        placeholder="enter email"
-        value={email}
-        onChangeText={setEmail}
-        style={{ width: 200, height: 100, borderRadius: 10 }}
-      />
-
-      <TouchableOpacity
-        onPress={handleSaveUser}
-        style={{ backgroundColor: 'blue', padding: 10, marginTop: 20 }}
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+      <View
+        style={{
+          padding: 20,
+          backgroundColor: '#111844',
+          flex: 1,
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
       >
-        <Text>Save User</Text>
-      </TouchableOpacity>
+        <TextInput
+          placeholder="Enter your Name"
+          placeholderTextColor={'#4B5694'}
+          value={name}
+          onChangeText={setName}
+          style={{
+            width: 300,
+            height: 50,
+            borderRadius: 10,
+            borderColor: '#4B5694',
+            borderWidth: 1,
+            marginBottom: 10,
+            padding: 10,
+            color: '#EAE0CF',
+          }}
+        />
 
-      {user && (
-        <>
-          <Text>name: {user.name}</Text>
-          <Text>email: {user.email}</Text>
-        </>
-      )}
-    </View>
+        <TextInput
+          placeholder="Enter your Email"
+          placeholderTextColor={'#4B5694'}
+          value={email}
+          onChangeText={setEmail}
+          style={{
+            width: 300,
+            height: 50,
+            borderRadius: 10,
+            borderColor: '#4B5694',
+            borderWidth: 1,
+            padding: 10,
+            color: '#EAE0CF',
+          }}
+        />
+
+        <TouchableOpacity
+          onPress={handleSaveUser}
+          activeOpacity={0.7}
+          style={{
+            backgroundColor: '#7288AE',
+            padding: 10,
+            marginTop: 20,
+            borderRadius: 10,
+            paddingHorizontal: 120,
+          }}
+        >
+          <Text style={{ color: '#EAE0CF', fontSize: 15, fontWeight: 500 }}>
+            Save User
+          </Text>
+        </TouchableOpacity>
+
+        {user && (
+          <>
+            <Text
+              style={{
+                color: '#EAE0CF',
+                fontSize: 15,
+                fontWeight: 500,
+                marginTop: 10,
+              }}
+            >
+              name: {user.name}
+            </Text>
+            <Text style={{ color: '#EAE0CF', fontSize: 15, fontWeight: 500 }}>
+              email: {user.email}
+            </Text>
+          </>
+        )}
+      </View>
+    </TouchableWithoutFeedback>
   );
 };
 
